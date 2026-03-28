@@ -1,11 +1,32 @@
-import Link from "next/link";
+"use client"; // Added
 
+import { useState } from "react"; // Added
+import { signInWithEmailAndPassword } from "firebase/auth"; // Added
+import { auth } from "@/lib/firebase"; // Added
+import { useRouter } from "next/navigation"; // Added
+import Link from "next/link";
 import { GoogleLoginButton } from "@/components/auth/google-login-button";
 import { uiText } from "@/constants/ui-text";
 
 export function LoginForm() {
+  // Added State
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+
+  // Added logic
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push("/");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
-    <form className="space-y-8">
+    <form onSubmit={handleSubmit} className="space-y-8">
       <div className="space-y-4">
         <div className="space-y-3">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
@@ -28,15 +49,15 @@ export function LoginForm() {
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <label
-              htmlFor="email"
-              className="mb-1.5 block text-[13px] font-medium text-slate-500"
-            >
+            <label htmlFor="email" className="mb-1.5 block text-[13px] font-medium text-slate-500">
               {uiText.auth.login.emailLabel}
             </label>
             <input
               id="email"
               type="email"
+              value={email} // Added
+              onChange={(e) => setEmail(e.target.value)} // Added
+              required // Added
               placeholder={uiText.auth.login.emailPlaceholder}
               className="h-12 w-full rounded-[10px] border border-[#E5E7EB] bg-white px-4 text-sm text-slate-900 shadow-sm outline-none transition-all duration-200 placeholder:text-slate-400 hover:border-slate-300 focus:border-[#6366F1] focus:shadow-[0_0_0_2px_rgba(99,102,241,0.15)]"
             />
@@ -44,10 +65,7 @@ export function LoginForm() {
 
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-3">
-              <label
-                htmlFor="password"
-                className="mb-1.5 block text-[13px] font-medium text-slate-500"
-              >
+              <label htmlFor="password" className="mb-1.5 block text-[13px] font-medium text-slate-500">
                 {uiText.auth.login.passwordLabel}
               </label>
               <span className="text-xs font-medium text-slate-500">
@@ -57,6 +75,9 @@ export function LoginForm() {
             <input
               id="password"
               type="password"
+              value={password} // Added
+              onChange={(e) => setPassword(e.target.value)} // Added
+              required // Added
               placeholder={uiText.auth.login.passwordPlaceholder}
               className="h-12 w-full rounded-[10px] border border-[#E5E7EB] bg-white px-4 text-sm text-slate-900 shadow-sm outline-none transition-all duration-200 placeholder:text-slate-400 hover:border-slate-300 focus:border-[#6366F1] focus:shadow-[0_0_0_2px_rgba(99,102,241,0.15)]"
             />

@@ -1,11 +1,40 @@
+"use client"; // Added
+
+import { useState } from "react"; // Added
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"; // Added
+import { auth } from "@/lib/firebase"; // Added
+import { useRouter } from "next/navigation"; // Added
 import Link from "next/link";
 
 import { GoogleLoginButton } from "@/components/auth/google-login-button";
 import { uiText } from "@/constants/ui-text";
 
 export function RegisterForm() {
+  // Added State
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+
+  // Added Logic
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      
+      // Update the Firebase user profile with the display name
+      await updateProfile(userCredential.user, {
+        displayName: name,
+      });
+
+      router.push("/"); // Redirect to home/dashboard
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
-    <form className="space-y-8">
+    <form onSubmit={handleRegister} className="space-y-8">
       <div className="space-y-4">
         <div className="space-y-3">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
@@ -37,6 +66,9 @@ export function RegisterForm() {
             <input
               id="name"
               type="text"
+              value={name} // Added
+              onChange={(e) => setName(e.target.value)} // Added
+              required // Added
               placeholder={uiText.auth.register.namePlaceholder}
               className="h-12 w-full rounded-[10px] border border-[#E5E7EB] bg-white px-4 text-sm text-slate-900 shadow-sm outline-none transition-all duration-200 placeholder:text-slate-400 hover:border-slate-300 focus:border-[#6366F1] focus:shadow-[0_0_0_2px_rgba(99,102,241,0.15)]"
             />
@@ -52,6 +84,9 @@ export function RegisterForm() {
             <input
               id="register-email"
               type="email"
+              value={email} // Added
+              onChange={(e) => setEmail(e.target.value)} // Added
+              required // Added
               placeholder={uiText.auth.register.emailPlaceholder}
               className="h-12 w-full rounded-[10px] border border-[#E5E7EB] bg-white px-4 text-sm text-slate-900 shadow-sm outline-none transition-all duration-200 placeholder:text-slate-400 hover:border-slate-300 focus:border-[#6366F1] focus:shadow-[0_0_0_2px_rgba(99,102,241,0.15)]"
             />
@@ -67,6 +102,9 @@ export function RegisterForm() {
             <input
               id="register-password"
               type="password"
+              value={password} // Added
+              onChange={(e) => setPassword(e.target.value)} // Added
+              required // Added
               placeholder={uiText.auth.register.passwordPlaceholder}
               className="h-12 w-full rounded-[10px] border border-[#E5E7EB] bg-white px-4 text-sm text-slate-900 shadow-sm outline-none transition-all duration-200 placeholder:text-slate-400 hover:border-slate-300 focus:border-[#6366F1] focus:shadow-[0_0_0_2px_rgba(99,102,241,0.15)]"
             />
