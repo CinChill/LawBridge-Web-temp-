@@ -4,11 +4,8 @@ export const uiText = {
   },
   header: {
     navigation: [
-      { href: "/", label: "Anlık Analiz" },
-      { href: "/dashboard/history", label: "Geçmiş Analizler" },
-      { href: "/dashboard/panel", label: "Analiz Paneli" },
-      { href: "/dashboard/petition", label: "Dilekçe Oluştur" },
-      { href: "/dashboard/precedents", label: "Emsal Kararlar" },
+      { href: "#about", label: "Hakkımızda" },
+      { href: "#team-message", label: "Ekibimizden Mesaj" },
     ],
     actions: {
       login: "Giriş Yap",
@@ -17,37 +14,38 @@ export const uiText = {
   },
   hero: {
     eyebrow: "LawBridge",
-    title: "Hukuki metinlerinizi anında analiz edin.",
+    title: "Sosyal medya yorumlarını hukuki açıdan analiz edin.",
     description:
-      "Metin analizi başlatın, geçmiş çalışmalarınıza dönün ve dilekçe ile emsal karar akışlarını tek yerden yönetin.",
-    primaryCta: "Metin Analizine Git",
+      "Sosyal medya içeriklerini analiz edin, hukuki riskleri belirleyin ve dava sürecinizi dilekçe ile emsal karar desteğiyle yönetin.",
+    primaryCta: "Yorum Analizine Başla",
     secondaryCta: "Geçmiş Analizleri Gör",
     highlights: [
-      "Metinler, belgeler ve hukuki taslaklar için hızlı analiz başlangıcı.",
-      "Analiz paneli, geçmiş kayıtlar ve dilekçe akışlarıyla uyumlu yapı.",
+      "Sosyal medya yorumlarını analiz ederek hukuki değerlendirme sürecini başlatın.",
+      "Analiz sonuçları, dilekçe taslakları ve emsal kararlarla entegre çalışma yapısı.",
     ],
   },
   instantAnalysis: {
     eyebrow: "Ürün Girişi",
-    title: "Anlık Hukuki Analiz",
+    title: "Anlık Yorum Analizi",
     description:
-      "Hukuki metninizi ekleyin ve ilk değerlendirmeyi saniyeler içinde alın.",
-    placeholder: "Analiz etmek istediğiniz metni buraya yapıştırın...",
-    submit: "Analiz Et",
+      "Sosyal medya yorumunu ekleyin ve ilk hukuki değerlendirmeyi saniyeler içinde alın.",
+    placeholder: "İncelemek istediğiniz sosyal medya yorumunu buraya yapıştırın...",
+    submit: "Yorumu Değerlendir",
     submitting: "Analiz ediliyor...",
-    result: "Analiz sonucu burada görüntülenecek.",
+    result: "Hukuki değerlendirme sonucu burada görüntülenecek.",
   },
   quickActions: {
-    eyebrow: "Hızlı Erişim",
-    title: "LawBridge ürün modüllerine tek noktadan geçin.",
+    eyebrow: "Hızlı Erişim Paneli",
+    title: "LawBridge modüllerine tek noktadan geçin.",
     description:
       "Ana analiz akışınızı bölmeden, ihtiyacınız olan modüllere hızlı ve net biçimde ulaşın.",
     cta: "İncele",
     items: [
       {
         href: "/",
-        title: "Anlık Analiz",
-        description: "Hukuki metinleri veya belgeleri saniyeler içinde analiz edin.",
+        title: "Yorum Analizi",
+        description:
+          "Sosyal medya yorumlarını saniyeler içinde hukuki açıdan değerlendirin.",
       },
       {
         href: "/dashboard/history",
@@ -83,17 +81,51 @@ export const uiText = {
       "Kurumsal ekipler için ölçeklenebilir kullanım",
     ],
   },
+  about: {
+    title: "Hakkımızda",
+    description:
+      "LawBridge, sosyal medya yorumlarını hukuki açıdan değerlendirerek avukatların dava hazırlık süreçlerini desteklemek için geliştirilen bir hukuk teknolojisi platformudur. Hakaret, kişilik haklarının ihlali ve benzeri sosyal medya kaynaklı uyuşmazlıklarda yorum analizi, dilekçe taslağı ve emsal karar desteği sunarak süreci daha hızlı ve daha düzenli hale getirir.",
+  },
+  teamMessage: {
+    title: "Ekibimizden Mesaj",
+    description:
+      "Hukuki değerlendirme süreçlerinde tekrar eden işleri azaltan, araştırma ve hazırlık aşamalarını daha verimli hale getiren bir yapı kurmayı hedefliyoruz. LawBridge'i, özellikle sosyal medya kaynaklı uyuşmazlıklarda avukatların daha hızlı, düzenli ve desteklenmiş şekilde çalışabilmesi için geliştiriyoruz.",
+  },
   compactFeatures: {
-    title: "Temel Yetenekler",
+    title: "Çözüm Modülleri",
+    description:
+      "LawBridge'in temel çözüm alanlarını tek bakışta inceleyin ve ihtiyacınıza uygun akışa hızlıca geçin.",
+    cta: "İncele",
     items: [
-      "Hukuki metin analizi",
-      "Dilekçe oluşturma desteği",
-      "Emsal karar yönlendirmesi",
+      {
+        title: "Yorum Analizi",
+        description:
+          "Sosyal medya yorumlarını analiz ederek olası hukuki riskleri hızlıca ortaya çıkarır.",
+        href: "#analysis",
+      },
+      {
+        title: "Emsal Karar Arama",
+        description:
+          "Benzer davalara ait kararları bularak araştırma sürecini hızlandırır.",
+        href: "/dashboard/precedents",
+      },
+      {
+        title: "Mobil Uygulama",
+        description:
+          "Hukuki süreçlere mobil cihazlar üzerinden pratik erişim sağlar.",
+        href: "/register",
+      },
+      {
+        title: "Otomatik Dilekçe",
+        description:
+          "Girilen verilere göre dilekçe taslağı oluşturarak hazırlık sürecini destekler.",
+        href: "/dashboard/petition",
+      },
     ],
   },
   footer: {
     summary:
-      "LawBridge ile hukuki analiz süreçlerinizi daha hızlı ve düzenli yönetin.",
+      "LawBridge ile sosyal medya kaynaklı hukuki değerlendirme, dilekçe hazırlığı ve emsal karar araştırmasını daha düzenli yönetin.",
   },
   auth: {
     shared: {
