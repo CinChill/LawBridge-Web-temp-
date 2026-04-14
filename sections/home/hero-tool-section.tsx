@@ -21,18 +21,12 @@ export function HeroToolSection() {
           </div>
 
           <div className="max-w-xl space-y-3 pt-1">
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3">
               <Link
                 href="#analysis"
                 className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-slate-950 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-slate-900/15 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-xl hover:shadow-slate-900/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/20 focus-visible:ring-offset-2"
               >
                 {uiText.hero.primaryCta}
-              </Link>
-              <Link
-                href="/dashboard/history"
-                className="inline-flex min-h-12 w-full items-center justify-center rounded-xl border border-slate-200 bg-white/75 px-6 py-3 text-center text-sm font-semibold text-slate-700 shadow-sm shadow-slate-200/70 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white hover:text-slate-950 hover:shadow-md"
-              >
-                {uiText.hero.secondaryCta}
               </Link>
             </div>
 
