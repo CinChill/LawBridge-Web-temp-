@@ -27,7 +27,7 @@ export function RegisterForm() {
         displayName: name,
       });
 
-      router.push("/"); // Redirect to home/dashboard
+      router.push("/dashboard");
     } catch (err) {
       console.error(err);
     }

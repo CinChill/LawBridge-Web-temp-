@@ -19,7 +19,7 @@ export function LoginForm() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/");
+      router.push("/dashboard");
     } catch (err) {
       console.error(err);
     }
