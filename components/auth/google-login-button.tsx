@@ -1,10 +1,20 @@
 "use client";
 
 import { uiText } from "@/constants/ui-text";
+import { signInWithPopup } from "firebase/auth"; // Added
+import { auth, googleProvider } from "@/lib/firebase"; // Added
+import { useRouter } from "next/navigation"; // Added
 
 export function GoogleLoginButton() {
-  function handleGoogleLogin() {
-    console.log("Google login clicked");
+  const router = useRouter(); // Added
+
+  async function handleGoogleLogin() {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      router.push("/dashboard");
+    } catch (error) {
+      console.error("Google login error:", error);
+    }
   }
 
   return (
