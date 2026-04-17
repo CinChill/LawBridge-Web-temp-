@@ -1,35 +1,23 @@
-"use client"; // Added
+"use client";
 
-import { useState } from "react"; // Added
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"; // Added
-import { auth, googleProvider } from "@/lib/firebase"; // Added
-import { useRouter } from "next/navigation"; // Added
+import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { GoogleLoginButton } from "@/components/auth/google-login-button";
 import { uiText } from "@/constants/ui-text";
 
 export function LoginForm() {
-  // Added State
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  // Added logic
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/dashboard");
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  // ✅ ADDED GOOGLE LOGIN HANDLER
-  const handleGoogleLogin = async () => {
-    try {
-      await signInWithPopup(auth, googleProvider);
-      router.push("/dashboard");
+      router.replace("/dashboard");
     } catch (err) {
       console.error(err);
     }

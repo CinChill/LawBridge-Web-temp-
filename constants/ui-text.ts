@@ -42,31 +42,31 @@ export const uiText = {
     cta: "İncele",
     items: [
       {
-        href: "/",
+        href: "/dashboard/analizler",
         title: "Yorum Analizi",
         description:
           "Sosyal medya yorumlarını saniyeler içinde hukuki açıdan değerlendirin.",
       },
       {
-        href: "/dashboard/history",
+        href: "/dashboard/gecmis",
         title: "Geçmiş Analizler",
         description:
           "Önceki analizlerinize tek yerden erişin ve tekrar inceleyin.",
       },
       {
-        href: "/dashboard/panel",
-        title: "Analiz Paneli",
+        href: "/dashboard/analizler",
+        title: "Yorum Analizi",
         description:
-          "Özet metrikleri, önemli içgörüleri ve durum kartlarını görüntüleyin.",
+          "Yorum metinlerini değerlendirerek hukuki risk başlıklarını yapılandırılmış biçimde inceleyin.",
       },
       {
-        href: "/dashboard/petition",
+        href: "/dashboard/dilekceler",
         title: "Dilekçe Oluştur",
         description:
           "Analiz çıktılarından hareketle dilekçe taslağı oluşturmaya başlayın.",
       },
       {
-        href: "/dashboard/precedents",
+        href: "/dashboard/emsal",
         title: "Emsal Kararlar",
         description:
           "Benzer davalar ve destekleyici emsal kararlarla araştırmanızı güçlendirin.",
@@ -101,13 +101,13 @@ export const uiText = {
         title: "Yorum Analizi",
         description:
           "Sosyal medya yorumlarını analiz ederek olası hukuki riskleri hızlıca ortaya çıkarır.",
-        href: "#analysis",
+        href: "/dashboard/analizler",
       },
       {
         title: "Emsal Karar Arama",
         description:
           "Benzer davalara ait kararları bularak araştırma sürecini hızlandırır.",
-        href: "/dashboard/precedents",
+        href: "/dashboard/emsal",
       },
       {
         title: "Mobil Uygulama",
@@ -119,7 +119,7 @@ export const uiText = {
         title: "Otomatik Dilekçe",
         description:
           "Girilen verilere göre dilekçe taslağı oluşturarak hazırlık sürecini destekler.",
-        href: "/dashboard/petition",
+        href: "/dashboard/dilekceler",
       },
     ],
   },
@@ -185,27 +185,8 @@ export const uiText = {
   },
   dashboard: {
     home: {
-      title: "Dashboard",
-      description: "LawBridge çalışma alanına genel erişim noktası.",
-    },
-    history: {
-      title: "Geçmiş Analizler",
-      description: "Önceki analiz kayıtlarını incelemek için hazırlanan alan.",
-    },
-    panel: {
-      title: "Analiz Paneli",
-      description:
-        "Özet kartları, metrikler ve önemli içgörüler için merkez ekran.",
-    },
-    petition: {
-      title: "Dilekçe Oluştur",
-      description:
-        "Analiz çıktılarından dilekçe taslağı üretmek için başlangıç alanı.",
-    },
-    precedents: {
-      title: "Emsal Kararlar",
-      description:
-        "Benzer dava ve emsal karar araştırmaları için destek alanı.",
+      title: "Çalışma Alanı",
+      description: "LawBridge ürün deneyiminin ana çalışma alanı.",
     },
   },
 } as const;
